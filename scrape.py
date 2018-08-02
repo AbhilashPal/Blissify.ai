@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Mar 23 21:58:30 2018
-
 @author: Utkarsh
 """
 
@@ -16,10 +15,7 @@ def getMusic(percent):
     from selenium.webdriver.common.keys import Keys
     from selenium.webdriver.support.ui import Select
     
-    #for Firefox
-    driver = webdriver.Firefox()
-    #for Chrome
-    #driver = webdriver.Chrome()
+    driver = webdriver.Chrome()
     driver.get("https://moodfuse.com/")
     select = Select(driver.find_element_by_name("genre"))
     select.select_by_visible_text(strr)
@@ -75,5 +71,3 @@ def getMusic(percent):
     k = {'x':names,'y':links}
     return k
 #fix this call. Edit the integer to be passed and select genre based on mood
-tup = getMusic(40)
-print(tup)

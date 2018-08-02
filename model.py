@@ -11,15 +11,12 @@ def predict(X):
 	image = cv2.resize(X,(64,64), interpolation = cv2.INTER_CUBIC)
 	image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 	image = image.reshape(1,64,64,1)
-	image = np.array([image])
-	pr = model.predict(image)
-	for i in range(p):
+	p = model.predict(image)
+	p=p[0]
+	print(p)
+	for i in range(len(p)):
 		if p[i]==max(p):
 			if i == 3:
-				print("Happy")
+				return(1)
 			else:
-				print("Sad")
-
-X = cv2.imread("data/testset/face5.jpeg")
-p = predict(X)
-print(p)
+				return (0)
